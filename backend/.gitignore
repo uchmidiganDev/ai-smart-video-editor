@@ -6,3 +6,5 @@ dev.db
 media/
 alembic/versions/__pycache__/
 .pytest_cache/
+
+.vercel
