@@ -54,6 +54,18 @@ pip install -r requirements-ml.txt
 
 va `.env` da `HF_TOKEN` ni kiriting (pyannote uchun HuggingFace token).
 
+## Deployment
+
+- **Kod**: https://github.com/uchmidiganDev/ai-smart-video-editor
+- **Frontend (Vercel)**: https://frontend-roan-one-75.vercel.app — to'liq ishlaydi (statik Vite ilova).
+- **Backend (Vercel)**: https://backend-livid-eta-79.vercel.app — **faqat qisman ishlaydi**, tavsiya etilmaydi. Vercel serverless funksiyalari quyidagilarni qo'llab-quvvatlamaydi:
+  - Doimiy fayl tizimi (yuklangan video/audio/SQLite baza har bir so'rovda yo'qoladi)
+  - WebSocket (`/ws/pipeline/...` ulanmaydi)
+  - Javob qaytarilgach davom etadigan fon jarayonlari (AI pipeline birinchi bosqichlardan keyin to'xtab qoladi)
+  - FFmpeg binari (o'rnatilmagan)
+
+  Backend to'liq ishlashi uchun Railway, Render, Fly.io yoki oddiy VPS kabi doimiy server platformasiga deploy qilish kerak — u yerda `backend/` papkasini xuddi mahalliy ishga tushirgandek (`uvicorn app.main:app`) ishlatish kifoya, keyin frontend'ning `VITE_API_BASE_URL` muhit o'zgaruvchisini o'sha manzilga o'zgartirish kerak.
+
 ## Arxitektura qisqacha
 
 - **Yuz aniqlash/kuzatish**, audio ajratish, video kesish/birlashtirish, shovqin tozalash — real, mahalliy (FFmpeg/OpenCV), API kalit talab qilmaydi.
