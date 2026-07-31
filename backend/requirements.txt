@@ -1,0 +1,29 @@
+# Core application dependencies — no heavy ML frameworks.
+# Everything here installs fast and lets the app run fully (with heuristic
+# fallbacks) even without any cloud API key configured.
+
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+websockets==14.1
+
+sqlalchemy==2.0.36
+alembic==1.14.0
+psycopg[binary]==3.2.3
+
+pydantic==2.10.4
+pydantic-settings==2.7.0
+python-multipart==0.0.20
+python-dotenv==1.0.1
+
+httpx==0.28.1
+aiofiles==24.1.0
+
+# Local media processing (real, no API key required)
+opencv-python-headless==4.10.0.84
+numpy==2.2.1
+moviepy==2.1.2
+
+# Cloud AI provider clients (used when the matching API key is set; the app
+# degrades to heuristic fallbacks when neither is configured)
+openai==1.58.1
+google-genai==1.3.0

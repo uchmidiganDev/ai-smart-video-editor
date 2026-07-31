@@ -1,0 +1,17 @@
+# Optional heavy local ML extras.
+#
+# These are NOT installed by default — they pull in PyTorch/TensorFlow and
+# multi-hundred-MB model weights. Install this file only if you want fully
+# local (offline) diarization and emotion detection instead of the
+# heuristic fallbacks / cloud APIs used otherwise:
+#
+#   pip install -r requirements-ml.txt
+#
+# pyannote.audio also requires a HuggingFace token with access to the
+# pyannote/speaker-diarization model (set HF_TOKEN in .env).
+
+torch==2.5.1
+torchaudio==2.5.1
+pyannote.audio==3.3.2
+deepface==0.0.93
+tensorflow==2.18.0
